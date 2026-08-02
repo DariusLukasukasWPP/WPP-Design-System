@@ -36,7 +36,7 @@ npx vitest --project storybook run  # stories as tests
 
 ### Foundations
 
-Colour, typography, spacing, radius, links, mobile rules, decorations, logos, iconography.
+Colour, typography, spacing, radius, links, mobile rules, decorations, **illustrations** (WPP Open stills + dot generators), logos, iconography.
 
 ### Patterns
 
@@ -90,6 +90,7 @@ src/
   assets/logos/          # Parent + sub-brand marks
   assets/partners/       # Partner attribution logos (local SVG)
   assets/decorations/    # Challenge card halftone flecks
+  assets/illustrations/  # WPP Open stills + Dot Illustrator generators (V1/V2)
   assets/icons/          # Service icons
   components/ui/         # Primitives + co-located *.stories.tsx
   components/patterns/   # Page compositions (header, footer, heroes, …)

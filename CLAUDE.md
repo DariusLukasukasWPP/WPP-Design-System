@@ -78,6 +78,23 @@ Orange halftone flecks on expertise Client Challenge cards live in
 `ChallengeDecoration` — alternate pattern 1 and 2 down the stack; do not
 recolour the SVG (fills are brand orange `#ff6400`).
 
+### Illustrations
+
+WPP Open halftone-dot stills for heroes, section atmospheres, and decorative
+media live in `src/assets/illustrations/` (`WPPOpen_*`). Catalogue:
+`Foundations/Illustrations` in Storybook.
+
+- **Fixed artwork** — import locally (`@/assets/illustrations/...`); do not
+  recolour, stretch, or hotlink CDN copies.
+- Series frames (`-01` / `-02` / `-03`) are alternates of one motif; Crystal V3
+  only has two frames.
+- **Generators** (same folder, served in Storybook at `/brand-illustrations/`):
+  - `WPP_Enterprise_DotIllustratorGenerator.html` — V1, image → PNG/SVG
+  - `WPP_Enterprise_DotIllustratorGeneratorV2.html` — **preferred**; adds video
+    upload, transport, export fps / max-frame, and Download Video (WebM/MP4)
+- Export new stills into `src/assets/illustrations/` and list them in the
+  Foundations story when they should be reusable system assets.
+
 ### Underlines — dotted on hover is INTENTIONAL
 
 Read the live header link classes before changing anything here:

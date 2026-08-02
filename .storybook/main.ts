@@ -4,7 +4,11 @@ const config: StorybookConfig = {
   "stories": [
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
-  "staticDirs": ["../public"],
+  // Serve brand illustration stills + standalone generator HTML tools.
+  "staticDirs": [
+    "../public",
+    { from: "../src/assets/illustrations", to: "/brand-illustrations" },
+  ],
   "addons": [
     "@chromatic-com/storybook",
     "@storybook/addon-vitest",
