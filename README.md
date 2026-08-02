@@ -36,7 +36,7 @@ npx vitest --project storybook run  # stories as tests
 
 **Foundations** — colour, typography, spacing, radius, links, mobile rules, logos, iconography
 
-**Patterns** — page compositions (header with mobile nav, footer, media/page heroes, section bands, insight card)
+**Patterns** — page compositions (header with mobile nav, footer, media/page heroes, section bands, partner grid, insight card)
 
 **Components** — forms, overlays, feedback, and layout primitives (button, input, select, dialog, sheet, tabs, table, accordion, and more), each with a Storybook story.
 
