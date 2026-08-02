@@ -369,6 +369,11 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1440px;
   --breakpoint-2xl: 1920px;
+
+  /* Page chrome — measured from enterprisesolutions.wpp.com */
+  --max-width-layout: 1440px; /* == --breakpoint-xl / site max-w-layout */
+  --spacing-header: 5.3125rem; /* 85px fixed header */
+  --header-height: 85px;
 }
 
 @layer base {
@@ -410,5 +415,21 @@
     font-weight: 400;
     letter-spacing: -0.4px;
     line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  /* Site content column — matches live `max-w-layout`. */
+  .max-w-layout {
+    max-width: var(--max-width-layout);
+  }
+
+  /* Footer / inline text links — dotted underline on hover only.
+     Distinct from nav links (underline-offset-12 + decoration-2). */
+  .hover-dotted:hover {
+    text-underline-offset: 0.75rem;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 0.125rem;
   }
 }

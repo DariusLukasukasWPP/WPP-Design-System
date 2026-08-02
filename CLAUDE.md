@@ -132,7 +132,8 @@ category:
 
 | Category | For |
 |---|---|
-| `Foundations/` | Colour, typography, token documentation |
+| `Foundations/` | Colour, typography, spacing, radius, links, mobile, logos, icons |
+| `Patterns/` | Page compositions (header, footer, heroes, insight card, …) |
 | `Forms/` | Inputs and controls |
 | `Overlays/` | Dialogs, popovers, menus, tooltips |
 | `Feedback/` | Alerts, badges, progress, skeletons |
@@ -140,6 +141,18 @@ category:
 
 A **Theme toolbar toggle** switches light/dark by putting `.dark` on the root —
 check both before considering a component done.
+
+## Mobile rules
+
+Measured from `enterprisesolutions.wpp.com` — see `Foundations/Mobile` in Storybook.
+
+- **Chrome splits at `lg` (1024px)**, not `md`. Below that: hide desktop nav +
+  header CTA; show the 44×44 dot-grid control → full-bleed navy sheet.
+- **Page gutter stays `px-6`** at every breakpoint inside `max-w-layout`.
+- **Expertise hero media**: `aspect-[9/16]` below `md`, `aspect-video` from
+  `md` up; supply a separate mobile image when the art direction needs it.
+- **Touch targets** for icon controls are `size-11` (44px). CTA pills stay
+  40px tall; full-width (`w-full md:w-auto`) is fine on the smallest screens.
 
 ## Commands
 

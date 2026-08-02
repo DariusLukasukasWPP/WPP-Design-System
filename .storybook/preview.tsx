@@ -53,6 +53,7 @@ const preview: Preview = {
       storySort: {
         order: [
           'Foundations',
+          'Patterns',
           'Forms',
           'Overlays',
           'Feedback',

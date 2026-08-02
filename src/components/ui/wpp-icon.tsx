@@ -185,12 +185,33 @@ function WppDotGrid({ className, ...props }: React.ComponentProps<"svg">) {
   )
 }
 
+/** Five-dot “X” the site cross-fades to when the mobile menu is open. */
+function WppMenuClose({ className, ...props }: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      data-slot="wpp-menu-close"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={cn("size-6 shrink-0", className)}
+      {...props}
+    >
+      <circle cx="4" cy="4" r="2" fill="currentColor" />
+      <circle cx="20" cy="4" r="2" fill="currentColor" />
+      <circle cx="12" cy="12" r="2" fill="currentColor" />
+      <circle cx="4" cy="20" r="2" fill="currentColor" />
+      <circle cx="20" cy="20" r="2" fill="currentColor" />
+    </svg>
+  )
+}
+
 export {
   ServiceIcon,
   WppPlusMinusIcon,
   ServiceIllustration,
   WppArrow,
   WppDotGrid,
+  WppMenuClose,
   SERVICE_ICON_DATA as SERVICE_ICONS,
   SERVICE_ILLUSTRATIONS,
   type ServiceName,

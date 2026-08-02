@@ -34,7 +34,9 @@ npx vitest --project storybook run  # stories as tests
 
 ## What’s in the catalogue
 
-**Foundations** — colour, typography, logos, iconography
+**Foundations** — colour, typography, spacing, radius, links, mobile rules, logos, iconography
+
+**Patterns** — page compositions (header with mobile nav, footer, media/page heroes, section bands, insight card)
 
 **Components** — forms, overlays, feedback, and layout primitives (button, input, select, dialog, sheet, tabs, table, accordion, and more), each with a Storybook story.
 
@@ -62,13 +64,14 @@ Changing a Layer 2 token restyles every component at once.
 
 ```
 src/
-  assets/fonts/     # WPP typeface (woff2)
-  assets/logos/     # Parent + sub-brand marks
-  assets/icons/     # Service icons
-  components/ui/    # Components + co-located *.stories.tsx
-  foundations/      # Token / brand documentation stories
-  index.css         # Token layers + base styles
-.storybook/         # Storybook config + theme toolbar
+  assets/fonts/          # WPP typeface (woff2)
+  assets/logos/          # Parent + sub-brand marks
+  assets/icons/          # Service icons
+  components/ui/         # Primitives + co-located *.stories.tsx
+  components/patterns/   # Page compositions (header, footer, cards)
+  foundations/           # Token / brand documentation stories
+  index.css              # Token layers + base styles
+.storybook/              # Storybook config + theme toolbar
 ```
 
 Import with the `@/` alias (e.g. `@/components/ui/button`).
@@ -79,7 +82,7 @@ Import with the `@/` alias (e.g. `@/components/ui/button`).
 npx shadcn@latest add <name>
 ```
 
-The CLI writes source only — add a matching `*.stories.tsx` beside it and place the story under the right sidebar category (`Foundations/`, `Forms/`, `Overlays/`, `Feedback/`, `Layout/`).
+The CLI writes source only — add a matching `*.stories.tsx` beside it and place the story under the right sidebar category (`Foundations/`, `Patterns/`, `Forms/`, `Overlays/`, `Feedback/`, `Layout/`).
 
 Use semantic Tailwind classes (`bg-primary`, `border-input`), never raw hex values.
 
