@@ -2,7 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Foundations/Mobile',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Breakpoint and mobile behaviour notes (header sheet below lg, partner snap scroller, etc.).',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

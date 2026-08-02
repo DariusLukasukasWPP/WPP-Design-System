@@ -4,7 +4,15 @@ import { ContentCard } from './content-card';
 const meta = {
   title: 'Patterns/Content Card',
   component: ContentCard,
-  parameters: { layout: 'padded' },
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        component:
+          'Feed tile for insights and case studies. Variants control eyebrow, title weight, and media treatment.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof ContentCard>;
 

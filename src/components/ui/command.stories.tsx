@@ -20,6 +20,14 @@ import {
 const meta = {
   title: 'Overlays/Command',
   component: Command,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Command palette / combobox overlay for keyboard-first search and actions.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Command>;
 

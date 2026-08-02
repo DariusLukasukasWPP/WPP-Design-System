@@ -4,7 +4,15 @@ import { InsightCard } from './insight-card';
 const meta = {
   title: 'Patterns/Insight Card',
   component: InsightCard,
-  parameters: { layout: 'padded' },
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        component:
+          'Compact featured / mega-menu insight tile with eyebrow, title, and optional media.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof InsightCard>;
 

@@ -12,6 +12,14 @@ import {
 const meta = {
   title: 'Layout/Pagination',
   component: Pagination,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Page navigation for lists and tables. Keep previous / next clear and mark the current page.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Pagination>;
 

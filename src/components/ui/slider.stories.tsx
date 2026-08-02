@@ -4,6 +4,14 @@ import { Slider } from './slider';
 const meta = {
   title: 'Forms/Slider',
   component: Slider,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Range input for numeric values. Provide a visible value label when precision matters.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Slider>;
 

@@ -7,7 +7,15 @@ import patternMobile2 from '@/assets/decorations/decoration-pattern-mobile-2.svg
 
 const meta = {
   title: 'Foundations/Decorations',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Halftone decoration flecks used on Client Challenge cards. Local SVG assets in src/assets/decorations.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

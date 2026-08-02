@@ -4,6 +4,14 @@ import { Badge } from './badge';
 const meta = {
   title: 'Feedback/Badge',
   component: Badge,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Small status or category label. Keep copy short; use semantic colours via variants.',
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     children: 'Badge',

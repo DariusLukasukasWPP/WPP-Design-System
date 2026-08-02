@@ -4,6 +4,14 @@ import { Separator } from './separator';
 const meta = {
   title: 'Layout/Separator',
   component: Separator,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Horizontal or vertical rule for dividing content. Prefer semantic spacing when a line isn’t needed.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Separator>;
 

@@ -5,7 +5,15 @@ import { WppArrow } from '@/components/ui/wpp-icon';
 const meta = {
   title: 'Foundations/Links',
   component: Link,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Inline and nav link treatments — underline offset, dotted hover, and colour rules from the live site.',
+      },
+    },
+  },
 } satisfies Meta<typeof Link>;
 
 export default meta;

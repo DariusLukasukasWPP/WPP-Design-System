@@ -5,6 +5,14 @@ import { BoldIcon } from 'lucide-react';
 const meta = {
   title: 'Forms/Toggle',
   component: Toggle,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Pressed / unpressed button toggle. Prefer Switch for settings that take effect immediately.',
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     children: <BoldIcon />,

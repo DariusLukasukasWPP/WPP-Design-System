@@ -4,7 +4,15 @@ import { SiteHeader } from './site-header';
 const meta = {
   title: 'Patterns/Site Header',
   component: SiteHeader,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Global site header. Desktop: wordmark + nav + CTA. Below lg: dot-grid opens a full-bleed navy sheet. Use tone="dark" on navy / imagery.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof SiteHeader>;
 

@@ -12,6 +12,14 @@ import { Button } from './button';
 const meta = {
   title: 'Overlays/Popover',
   component: Popover,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Non-modal floating panel anchored to a trigger. Prefer Tooltip for short hints and Dialog for complex forms.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Popover>;
 

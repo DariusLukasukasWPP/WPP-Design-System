@@ -61,7 +61,7 @@ Page compositions measured from the live site:
 
 Forms, overlays, feedback, and layout primitives (button, input, select, dialog, sheet, tabs, table, accordion, and more), each with a Storybook story.
 
-Use the Storybook **Theme** toolbar to switch light / dark before signing off a component. Resize below **1024px** to exercise mobile header behaviour.
+Every entry has a **Docs** tab (autodocs) with a short usage note — open it beside Canvas when onboarding a component. Use the Storybook **Theme** toolbar to switch light / dark before signing off. Resize below **1024px** to exercise mobile header behaviour.
 
 ## Token architecture
 

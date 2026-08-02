@@ -5,7 +5,15 @@ import { cn } from '@/lib/utils';
 
 const meta = {
   title: 'Patterns/Hero & Section',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Page opening compositions: full-bleed MediaHero (home), PageHero (expertise pillars), and SectionBand content wrappers.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

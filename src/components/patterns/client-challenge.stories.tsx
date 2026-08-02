@@ -7,7 +7,15 @@ import {
 const meta = {
   title: 'Patterns/Client Challenge',
   component: ClientChallengeCard,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Expertise “challenge / how we help” pair with optional decoration flecks. Use for consulting and engineering pillar sections.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof ClientChallengeCard>;
 

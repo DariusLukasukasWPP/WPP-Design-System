@@ -5,6 +5,14 @@ import { Alert, AlertTitle, AlertDescription } from './alert';
 const meta = {
   title: 'Feedback/Alert',
   component: Alert,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Inline status message with optional icon, title, and description. Use for page-level notices, not transient toasts.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Alert>;
 

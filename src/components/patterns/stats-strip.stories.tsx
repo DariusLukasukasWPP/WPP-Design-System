@@ -4,7 +4,15 @@ import { StatsStrip } from './stats-strip';
 const meta = {
   title: 'Patterns/Stats Strip',
   component: StatsStrip,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Bordered metric row used on Partners and similar pages. Pass label / value pairs; layout stacks on small viewports.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof StatsStrip>;
 

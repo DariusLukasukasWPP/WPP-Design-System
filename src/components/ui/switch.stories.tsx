@@ -5,6 +5,14 @@ import { Label } from './label';
 const meta = {
   title: 'Forms/Switch',
   component: Switch,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Immediate on/off toggle. Prefer Checkbox when the choice is submitted with a form.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Switch>;
 

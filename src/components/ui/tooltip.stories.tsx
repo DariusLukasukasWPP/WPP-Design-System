@@ -10,6 +10,14 @@ import { Button } from './button';
 const meta = {
   title: 'Overlays/Tooltip',
   component: Tooltip,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Short hover / focus hint. Keep copy to a phrase; don’t put actions inside.',
+      },
+    },
+  },
   tags: ['autodocs'],
   decorators: [
     (Story) => (

@@ -4,7 +4,15 @@ import { PartnerGrid } from './partner-grid';
 const meta = {
   title: 'Patterns/Partner Grid',
   component: PartnerGrid,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Partner logos in attribution (homepage: white cells + orange CTA) or directory (Partners page: cream tiles + Load more) layouts. Logos are local SVG assets.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof PartnerGrid>;
 

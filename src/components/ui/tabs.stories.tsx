@@ -4,6 +4,14 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from './tabs';
 const meta = {
   title: 'Layout/Tabs',
   component: Tabs,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'In-page section switcher. Prefer for peer views that share the same context.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Tabs>;
 

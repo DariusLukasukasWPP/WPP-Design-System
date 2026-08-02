@@ -12,6 +12,14 @@ import {
 const meta = {
   title: 'Layout/Table',
   component: Table,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Data table primitives. Keep headers concise; pair with Pagination for long sets.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Table>;
 

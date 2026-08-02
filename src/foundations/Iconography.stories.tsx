@@ -10,7 +10,15 @@ import {
 
 const meta = {
   title: 'Foundations/Iconography',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Lucide UI icons plus WPP service marks and menu glyphs. Prefer semantic sizing; service marks need ≥48px.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

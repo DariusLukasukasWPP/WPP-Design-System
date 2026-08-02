@@ -2,7 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Foundations/Typography',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'WPP typeface (local woff2). Display type is Light (300) with tight tracking on headings — measured from the live site.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

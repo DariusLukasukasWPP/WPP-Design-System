@@ -4,7 +4,15 @@ import { AuthorCarousel, AuthorCard } from './author-carousel';
 const meta = {
   title: 'Patterns/Author Carousel',
   component: AuthorCarousel,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Insight article author band: lavender tint panel with Share (copy / X / LinkedIn) on the left and oval initials avatars + bio + outline CTA on the right. Supports a horizontal scroll when multiple authors are passed.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof AuthorCarousel>;
 

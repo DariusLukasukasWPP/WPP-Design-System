@@ -15,6 +15,14 @@ import { Button } from './button';
 const meta = {
   title: 'Overlays/AlertDialog',
   component: AlertDialog,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Modal confirmation that interrupts the flow until the user confirms or cancels. Prefer for destructive or irreversible actions.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof AlertDialog>;
 

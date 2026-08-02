@@ -11,6 +11,14 @@ import { SearchIcon, EyeIcon, MailIcon } from 'lucide-react';
 const meta = {
   title: 'Forms/InputGroup',
   component: InputGroup,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Input with leading / trailing addons (icons, buttons, text). Password show/hide is a common trailing pattern.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof InputGroup>;
 

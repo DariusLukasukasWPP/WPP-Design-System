@@ -6,6 +6,14 @@ import { Button } from './button';
 const meta = {
   title: 'Feedback/Sonner',
   component: Toaster,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Toast notifications. Prefer for transient success / error feedback after an action.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Toaster>;
 

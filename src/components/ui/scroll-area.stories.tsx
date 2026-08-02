@@ -5,6 +5,14 @@ import { Separator } from './separator';
 const meta = {
   title: 'Layout/ScrollArea',
   component: ScrollArea,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Custom scrollable region with styled scrollbars for constrained panels.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof ScrollArea>;
 

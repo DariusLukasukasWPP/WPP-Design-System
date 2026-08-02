@@ -12,6 +12,14 @@ import {
 const meta = {
   title: 'Layout/Breadcrumb',
   component: Breadcrumb,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Hierarchical navigation trail. Keep the current page as the last item and omit a link on it.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Breadcrumb>;
 

@@ -4,6 +4,14 @@ import { Input } from './input';
 const meta = {
   title: 'Forms/Input',
   component: Input,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Single-line text field. Password type uses wider letter-spacing so mask dots aren’t cramped under the WPP typeface.',
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     placeholder: 'Email',

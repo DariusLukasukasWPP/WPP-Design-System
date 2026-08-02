@@ -3,6 +3,9 @@ import { useEffect } from 'react'
 import '../src/index.css'
 
 const preview: Preview = {
+  // Docs page for every story — foundations, patterns, and primitives.
+  tags: ['autodocs'],
+
   globalTypes: {
     theme: {
       description: 'Light or dark brand theme',
@@ -40,6 +43,10 @@ const preview: Preview = {
        color: /(background|color)$/i,
        date: /Date$/i,
       },
+    },
+
+    docs: {
+      codePanel: true,
     },
 
     a11y: {

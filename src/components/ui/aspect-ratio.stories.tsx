@@ -4,6 +4,14 @@ import { AspectRatio } from './aspect-ratio';
 const meta = {
   title: 'Layout/AspectRatio',
   component: AspectRatio,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Locks child media to a ratio (e.g. 16/9). Useful in cards and heroes so images don’t jump layout.',
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     ratio: 16 / 9,

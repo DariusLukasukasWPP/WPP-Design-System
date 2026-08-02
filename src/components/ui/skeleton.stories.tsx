@@ -4,6 +4,14 @@ import { Skeleton } from './skeleton';
 const meta = {
   title: 'Feedback/Skeleton',
   component: Skeleton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Loading placeholder that mirrors content shape. Prefer over spinners for content regions.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Skeleton>;
 

@@ -4,7 +4,15 @@ import { CaseStudySpotlight } from './case-study';
 const meta = {
   title: 'Patterns/Case Study',
   component: CaseStudySpotlight,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Expertise case-study spotlight — headline, supporting copy, metric strip, and media — measured from enterprisesolutions.wpp.com pillar pages.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof CaseStudySpotlight>;
 

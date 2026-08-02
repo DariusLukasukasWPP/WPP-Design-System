@@ -4,6 +4,14 @@ import { Textarea } from './textarea';
 const meta = {
   title: 'Forms/Textarea',
   component: Textarea,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Multi-line text field. Match Input styling for form consistency.',
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     placeholder: 'Type your message here.',

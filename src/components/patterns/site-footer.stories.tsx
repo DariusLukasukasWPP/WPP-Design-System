@@ -4,7 +4,15 @@ import { SiteFooter } from './site-footer';
 const meta = {
   title: 'Patterns/Site Footer',
   component: SiteFooter,
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Site footer with navy CTA band, cream contact strip, and sitemap columns — matches the live ES footer.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof SiteFooter>;
 

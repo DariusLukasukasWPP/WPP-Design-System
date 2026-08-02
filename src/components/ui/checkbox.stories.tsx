@@ -5,6 +5,14 @@ import { Label } from './label';
 const meta = {
   title: 'Forms/Checkbox',
   component: Checkbox,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Binary choice control. Pair with Field / Label for accessible forms.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Checkbox>;
 

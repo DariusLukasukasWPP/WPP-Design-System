@@ -2,7 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Foundations/Spacing',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Spacing scale and layout gutters (max-w-layout 1440px, page px-6, header 85px).',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

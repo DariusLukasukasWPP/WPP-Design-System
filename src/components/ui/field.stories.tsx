@@ -15,6 +15,14 @@ import { Textarea } from './textarea';
 const meta = {
   title: 'Forms/Field',
   component: Field,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Form field composition helpers (label, description, error) for consistent spacing and a11y wiring.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Field>;
 

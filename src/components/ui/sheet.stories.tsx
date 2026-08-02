@@ -15,6 +15,14 @@ import { Label } from './label';
 const meta = {
   title: 'Overlays/Sheet',
   component: Sheet,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Slide-over panel (used by the mobile header nav). Prefer for mobile menus and side filters.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Sheet>;
 

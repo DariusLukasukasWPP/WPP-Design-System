@@ -13,6 +13,14 @@ import { Button } from './button';
 const meta = {
   title: 'Layout/Card',
   component: Card,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Surface container for grouped content. Prefer pattern-level cards (Content Card, Insight Card) for marketing layouts; use this for app UI.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Card>;
 

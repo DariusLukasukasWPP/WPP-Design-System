@@ -4,6 +4,14 @@ import { Progress } from './progress';
 const meta = {
   title: 'Feedback/Progress',
   component: Progress,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Determinate progress bar. Fill uses the brand CTA orange.',
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     value: 40,

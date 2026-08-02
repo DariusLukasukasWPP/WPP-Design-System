@@ -5,6 +5,14 @@ import { Label } from './label';
 const meta = {
   title: 'Forms/RadioGroup',
   component: RadioGroup,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Single-choice group. Pair each item with a Label.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof RadioGroup>;
 

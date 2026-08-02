@@ -13,6 +13,14 @@ import {
 const meta = {
   title: 'Forms/Select',
   component: Select,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Single-select dropdown. Prefer for medium-length option lists; use Combobox/Command for searchable long lists.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Select>;
 

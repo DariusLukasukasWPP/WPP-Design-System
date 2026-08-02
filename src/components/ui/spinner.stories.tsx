@@ -5,6 +5,14 @@ import { Button } from './button';
 const meta = {
   title: 'Feedback/Spinner',
   component: Spinner,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Indeterminate loading indicator for actions and compact slots.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Spinner>;
 

@@ -4,6 +4,14 @@ import { Button } from './button';
 const meta = {
   title: 'Forms/Button',
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Brand CTA family: pills with 9999px radius. Primary is orange with a navy label; hover goes orange across filled and outlined variants. Check light and dark via the Theme toolbar.',
+      },
+    },
+  },
   tags: ['autodocs'],
   args: {
     children: 'Get in touch',

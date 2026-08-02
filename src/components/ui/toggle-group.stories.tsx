@@ -5,6 +5,14 @@ import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react';
 const meta = {
   title: 'Forms/ToggleGroup',
   component: ToggleGroup,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Grouped toggle buttons for mutually exclusive or multi-select options.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof ToggleGroup>;
 

@@ -2,7 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Foundations/Colors',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Brand palette (Layer 1), semantic tokens (Layer 2), and Tailwind mappings (Layer 3). Components must consume semantic tokens — never raw --wpp-* or hex.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

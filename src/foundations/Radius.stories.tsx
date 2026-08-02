@@ -2,7 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Foundations/Radius',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Radius scale: pills are 9999px, cards are 4px (--radius: 0.25rem). Don’t invent intermediate radii.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

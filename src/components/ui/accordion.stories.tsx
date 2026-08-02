@@ -9,6 +9,14 @@ import {
 const meta = {
   title: 'Layout/Accordion',
   component: Accordion,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Vertically stacked disclosure. Expandable title and WPP plus/minus icon use text-primary (navy). Prefer for FAQs and long-form sections.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Accordion>;
 

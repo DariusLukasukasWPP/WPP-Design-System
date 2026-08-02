@@ -14,6 +14,14 @@ import { Button } from './button';
 const meta = {
   title: 'Overlays/DropdownMenu',
   component: DropdownMenu,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Contextual action menu triggered by a button. Keep items short and group related actions.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof DropdownMenu>;
 

@@ -5,6 +5,14 @@ import { Input } from './input';
 const meta = {
   title: 'Forms/Label',
   component: Label,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Accessible label for form controls. Prefer wrapping with Field for description and error slots.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Label>;
 

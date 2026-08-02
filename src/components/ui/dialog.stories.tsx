@@ -14,6 +14,14 @@ import { Input } from './input';
 const meta = {
   title: 'Overlays/Dialog',
   component: Dialog,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Modal dialog for focused tasks. Prefer AlertDialog when the action is destructive.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Dialog>;
 

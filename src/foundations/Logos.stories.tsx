@@ -8,7 +8,15 @@ import {
 
 const meta = {
   title: 'Foundations/Logos',
-  parameters: { layout: 'fullscreen' },
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Parent WPP and Enterprise Solutions wordmarks. Use the Logo component; don’t hotlink CDN marks.',
+      },
+    },
+  },
 } satisfies Meta;
 
 export default meta;

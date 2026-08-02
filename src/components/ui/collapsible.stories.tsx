@@ -6,6 +6,14 @@ import { ChevronsUpDownIcon } from 'lucide-react';
 const meta = {
   title: 'Layout/Collapsible',
   component: Collapsible,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Show / hide a content region without the full accordion chrome. Use when only one panel is needed.',
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Collapsible>;
 
