@@ -48,7 +48,7 @@ function AccordionTrigger({
         {children}
         {/* The site's disclosure indicator is a plus that cross-fades to a
             minus — not a chevron, and not a rotation. */}
-        <WppPlusMinusIcon data-slot="accordion-trigger-icon" className="ml-auto text-muted-foreground" />
+        <WppPlusMinusIcon data-slot="accordion-trigger-icon" className="ml-auto text-primary" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )
@@ -62,7 +62,7 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
-      className="overflow-hidden text-base data-open:animate-accordion-down data-closed:animate-accordion-up"
+      className="overflow-hidden text-base text-primary data-open:animate-accordion-down data-closed:animate-accordion-up"
       {...props}
     >
       <div
