@@ -27,7 +27,90 @@ do not patch individual components to change appearance.
 - **`--destructive`** is brand red `#bc0113`, not an arbitrary red.
 - **Typeface is WPP**, loaded locally from `src/assets/fonts` as woff2 across six
   weights plus italics, bound to `--font-sans`. Do not introduce another font.
-- Radius scale follows WPP: `lg` = 8px, and `--radius` is `0.5rem`.
+
+### Shape and type — measured from the live site
+
+Audited against `enterprisesolutions.wpp.com` — do not "fix" these back to
+stock shadcn values:
+
+- **Buttons are pills.** Every designed CTA on the site is `border-radius:
+  9999px`, 40px tall, 14px / weight 500 / `-0.4px` tracking / capitalised.
+  There is no 8px-radius button anywhere on the site.
+- **The primary CTA is orange with a NAVY label** (`--cta` / `--cta-foreground`),
+  not navy-with-white. `Button` variants map to the site's family:
+  `default` = orange pill, `outline` = 1px navy hairline, `navy` = solid navy,
+  `inverse` = white pill for navy/imagery backgrounds.
+- **`--primary` stays navy.** It drives component states (checkbox checked,
+  switch on, slider range, progress). Only the CTA is orange.
+- **Cards and panels are 4px** — `--radius` is `0.25rem`. The site's radius
+  census is 9999px (pills), 4px (cards), 2px (small chrome). No 8px.
+- **Display type is WPP Light (300)** with tight negative tracking and ~1.0
+  leading, set in `@layer base`: h1 48/48 `-2.16px`, h2 32/32 `-0.4px`,
+  h3 24/26.4 `-0.4px`, h4 20/24 `-0.4px`. Headings are not Medium.
+
+### Logos
+
+`src/components/ui/logo.tsx` — `WppLogo` (the parent wordmark) and
+`SubBrandLogo` (eight sub-brands: barrows, bottle-rocket, diff, dti, map,
+marketdata-match, the-cocktail, verticurl).
+
+- Logos are fixed artwork, **not** tokens. `tone` is a closed `navy | white`
+  set on purpose — never tint a logo with a palette colour.
+- Size by **height** (`h-8`, `h-10`); width is `w-auto` so each mark keeps its
+  intrinsic ratio. Ratios run from about 5:1 to 12:1, so never set both.
+- Below ~32px tall the dot pattern stops resolving.
+- **Verticurl has no white master** — `tone="white"` falls back to navy and
+  will disappear on a navy surface. Needs requesting from the brand team.
+- Favicon lives at `public/favicon.svg` (referenced by `index.html`, and by
+  Storybook via `staticDirs` + `.storybook/manager-head.html`).
+
+### Underlines — dotted on hover is INTENTIONAL
+
+Read the live header link classes before changing anything here:
+
+```
+decoration-current underline-offset-12
+hover:underline hover:decoration-dotted hover:decoration-2
+```
+
+A **dotted 2px underline on hover** is the brand's navigation-link treatment —
+it echoes the dot motif that runs through the whole identity. It is not a
+rendering artefact. Do **not** "fix" it to a solid rule, and do not pin
+`decoration-1`. The `Button` `link` variant reproduces this recipe.
+
+`text-decoration-skip-ink: none` on `html` keeps the rule continuous across
+descenders.
+
+### Interaction states — orange is the hover colour
+
+From the live CTA class lists:
+
+| Variant | Rest | Hover |
+|---|---|---|
+| `default` | orange fill, navy label | **orange-800** `#e55a00` |
+| `outline` | navy hairline, transparent | **fills orange**, border to transparent |
+| `inverse` | white fill, navy label | **fills orange** |
+
+Disabled CTAs use explicit greys — `bg` grey-4, text grey-3, border transparent
+— not opacity. Non-CTA variants (secondary/ghost/destructive) keep shadcn's
+opacity-based disabled state.
+
+### Icons
+
+Two separate systems — do not conflate:
+
+- **`lucide-react`** for all interface affordances (chevron, close, search,
+  check). This is the UI icon set.
+- **`WppIcon`** (`src/components/ui/wpp-icon.tsx`) for the six service-line
+  marks. Keys follow the **live site's** service names, which differ from the
+  older brand-asset filenames: `consulting`, `customer-experience`,
+  `commerce`, `content-transformation` (was "Content"), `crm-and-loyalty`
+  (labelled "1PD, CRM & Loyalty"), `engineering-and-platforms` (was
+  "Technology & Data"). There are exactly six marks — the 48 files in the brand
+  folder are these six across eight colourways. These are halftone dot
+  illustrations on a 500&times;500 grid with ~50 circles each — they only read
+  at 48px and up. Rendered via CSS mask, so they recolour with any text
+  colour token (`text-primary`, `text-wpp-orange`). Never use them as UI icons.
 
 ## Writing components
 
@@ -37,6 +120,10 @@ do not patch individual components to change appearance.
 - Use semantic Tailwind classes (`bg-primary`, `border-input`). Never
   `bg-[#000050]`.
 - Use the `@/` alias for imports, not relative paths across directories.
+- **`npx shadcn add form` is a no-op stub in this shadcn generation** — it
+  resolves to zero files. Use `npx shadcn add field` instead; `Field`/
+  `FieldGroup`/`FieldSet`/`FieldLabel`/`FieldError` are the current
+  react-hook-form-agnostic replacement for the old `Form` wrapper.
 
 ## Storybook conventions
 

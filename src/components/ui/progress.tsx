@@ -23,11 +23,14 @@ function Progress({
   )
 }
 
+// Colours taken from the site's carousel progress bar: an ORANGE filled
+// portion on a NAVY track — not shadcn's navy-on-grey. The bar is square-ended
+// on the site, so no rounded cap.
 function ProgressTrack({ className, ...props }: ProgressPrimitive.Track.Props) {
   return (
     <ProgressPrimitive.Track
       className={cn(
-        "relative flex h-1 w-full items-center overflow-x-hidden rounded-full bg-muted",
+        "relative flex h-0.5 w-full items-center overflow-x-hidden bg-primary",
         className
       )}
       data-slot="progress-track"
@@ -43,7 +46,7 @@ function ProgressIndicator({
   return (
     <ProgressPrimitive.Indicator
       data-slot="progress-indicator"
-      className={cn("h-full bg-primary transition-all", className)}
+      className={cn("h-full bg-cta transition-all", className)}
       {...props}
     />
   )

@@ -172,6 +172,11 @@
   --primary: var(--wpp-navy);
   --primary-foreground: var(--wpp-white);
 
+  /* Call-to-action. On enterprisesolutions.wpp.com the primary CTA is an
+     orange pill with NAVY (not white) label — verified against the live site. */
+  --cta: var(--wpp-orange);
+  --cta-foreground: var(--wpp-navy);
+
   --secondary: var(--wpp-tint-100);
   --secondary-foreground: var(--wpp-navy);
 
@@ -185,7 +190,12 @@
 
   --border: var(--wpp-grey-3);
   --input: var(--wpp-grey-3);
-  --ring: var(--wpp-tint-700);
+  /* The site focuses with `outline-2 outline-offset-2 outline-current`, i.e. a
+     navy indicator matching the text colour — not a tinted one. Components here
+     use shadcn's ring utilities, so the hue is corrected at the token instead of
+     rewriting the focus utility in 14 files. Dark mode keeps a light tint,
+     since navy on a navy ground would be invisible. */
+  --ring: var(--wpp-navy);
 
   /* Data visualisation — WPP tertiary palette */
   --chart-1: var(--wpp-navy);
@@ -203,8 +213,9 @@
   --sidebar-border: var(--wpp-dark-cream);
   --sidebar-ring: var(--wpp-tint-700);
 
-  /* WPP radius scale: lg = 8px */
-  --radius: 0.5rem;
+  /* Cards, panels and popovers on the live site use rounded-sm = 4px.
+     (Buttons are pills and set their own radius.) */
+  --radius: 0.25rem;
 }
 
 /* ==========================================================================
@@ -224,6 +235,9 @@
   --primary: var(--wpp-tint-600);
   --primary-foreground: var(--wpp-navy);
 
+  --cta: var(--wpp-orange);
+  --cta-foreground: var(--wpp-navy);
+
   --secondary: #1a1a3d;
   --secondary-foreground: var(--wpp-cream);
 
@@ -237,7 +251,8 @@
 
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 18%);
-  --ring: var(--wpp-tint-700);
+  /* Light tint, not navy — navy on a navy ground would be invisible. */
+  --ring: var(--wpp-tint-600);
 
   --chart-1: var(--wpp-tint-600);
   --chart-2: var(--wpp-blue-500);
@@ -272,6 +287,8 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -322,12 +339,26 @@
   --color-wpp-red: var(--wpp-red);
   --color-wpp-pink: var(--wpp-pink);
 
-  /* WPP radius scale */
+  /* Surface radii.
+   *
+   * WPP publishes a full scale (2/4/6/8/12/16/24/32), but a radius census of
+   * the live site found only THREE values in use: 9999px for pills, 4px for
+   * cards and panels, 2px for small chrome. Nothing renders at 6, 8 or 12px.
+   *
+   * Stock shadcn components reach for `rounded-md`/`rounded-lg`/`rounded-xl`,
+   * so leaving the published scale mapped 1:1 silently rendered every card,
+   * popover and input at 8-12px — off-brand. The surface steps are therefore
+   * collapsed onto the two values the brand actually ships.
+   *
+   * Doing it here rather than editing ~15 component files is deliberate:
+   * `shadcn add` overwrites component source on re-add, but never the token
+   * layer. `--radius-2xl` and up are left intact for large decorative panels.
+   */
   --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
   --radius-2xl: 16px;
   --radius-3xl: 24px;
   --radius-4xl: 32px;
@@ -349,5 +380,35 @@
   }
   html {
     @apply font-sans;
+    /* The browser default (skip-ink: auto) chops an underline around every
+       descender. In WPP at 14px those gaps read as a dotted line rather than
+       a rule, so links look broken. The property inherits, so setting it here
+       fixes every underline in the system — Button link, Badge link, and the
+       [&_a]:underline rules inside Alert / Dialog / Accordion / Field. */
+    text-decoration-skip-ink: none;
+  }
+
+  /* Display type on the live site is WPP Light (300) with tight negative
+     tracking and near-1.0 leading. Measured from enterprisesolutions.wpp.com:
+     h1 48/48 -2.16px · h2 32/32 -0.4px · h3 24/26.4 -0.4px · h4 20/24 -0.4px */
+  h1 {
+    font-weight: 300;
+    letter-spacing: -2.16px;
+    line-height: 1;
+  }
+  h2 {
+    font-weight: 300;
+    letter-spacing: -0.4px;
+    line-height: 1;
+  }
+  h3 {
+    font-weight: 300;
+    letter-spacing: -0.4px;
+    line-height: 1.1;
+  }
+  h4 {
+    font-weight: 400;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
   }
 }
