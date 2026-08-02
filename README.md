@@ -1,32 +1,88 @@
-# React + TypeScript + Vite
+# WPP Enterprise Solutions — Design System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Component library and design tokens for [WPP Enterprise Solutions](https://enterprisesolutions.wpp.com), built with React, Vite, Tailwind CSS v4, and shadcn/ui (Base UI primitives). The living catalogue is Storybook.
 
-Currently, two official plugins are available:
+Brand values are taken from the live site and cross-checked against WPP brand assets. Tokens and components follow those measurements — not stock shadcn defaults.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+| Layer | Choice |
+|---|---|
+| UI | React 19 + TypeScript |
+| Build | Vite |
+| Styling | Tailwind CSS v4 |
+| Primitives | shadcn/ui on Base UI |
+| Catalogue | Storybook 10 |
+| Icons | Lucide + WPP service icons |
+| Font | WPP (local woff2) |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Quick start
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run storybook   # catalogue on http://localhost:6006
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Other scripts:
+
+```bash
+npm run dev              # Vite app shell
+npm run build            # production build
+npm run build-storybook  # static Storybook
+npx vitest --project storybook run  # stories as tests
+```
+
+## What’s in the catalogue
+
+**Foundations** — colour, typography, logos, iconography
+
+**Components** — forms, overlays, feedback, and layout primitives (button, input, select, dialog, sheet, tabs, table, accordion, and more), each with a Storybook story.
+
+Use the Storybook **Theme** toolbar to switch light / dark before signing off a component.
+
+## Token architecture
+
+All styling flows through `src/index.css`. Do not hardcode colours in components.
+
+1. **Brand palette** (`--wpp-*`) — raw WPP values; not used directly in components
+2. **Semantic tokens** (`--primary`, `--muted`, `--border`, …) — what components consume; defined for light (`:root`) and dark (`.dark`)
+3. **`@theme inline`** — maps semantic tokens to Tailwind utilities (`bg-primary`, `text-muted-foreground`)
+
+Changing a Layer 2 token restyles every component at once.
+
+### Brand highlights
+
+- **Navy `#000050`** → `--primary` (flips to Tint 600 in dark mode)
+- **CTA** is orange with a navy label (`--cta` / `--cta-foreground`) — buttons are pills
+- **Cream `#fafaf0`** for warm neutrals / sidebar in light mode
+- **Destructive** is brand red `#bc0113`
+- **Radius**: pills `9999px`, cards `4px` (`--radius: 0.25rem`)
+
+## Project layout
+
+```
+src/
+  assets/fonts/     # WPP typeface (woff2)
+  assets/logos/     # Parent + sub-brand marks
+  assets/icons/     # Service icons
+  components/ui/    # Components + co-located *.stories.tsx
+  foundations/      # Token / brand documentation stories
+  index.css         # Token layers + base styles
+.storybook/         # Storybook config + theme toolbar
+```
+
+Import with the `@/` alias (e.g. `@/components/ui/button`).
+
+## Adding a component
+
+```bash
+npx shadcn@latest add <name>
+```
+
+The CLI writes source only — add a matching `*.stories.tsx` beside it and place the story under the right sidebar category (`Foundations/`, `Forms/`, `Overlays/`, `Feedback/`, `Layout/`).
+
+Use semantic Tailwind classes (`bg-primary`, `border-input`), never raw hex values.
+
+## Source of truth
+
+Agent-oriented brand and contribution rules live in [`CLAUDE.md`](./CLAUDE.md). When brand CSS exports disagree with the live site, the live site wins — resolve with the brand team if it matters.
