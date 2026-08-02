@@ -36,7 +36,7 @@ npx vitest --project storybook run  # stories as tests
 
 ### Foundations
 
-Colour, typography, spacing, radius, links, mobile rules, logos, iconography.
+Colour, typography, spacing, radius, links, mobile rules, decorations, logos, iconography.
 
 ### Patterns
 
@@ -49,8 +49,13 @@ Page compositions measured from the live site:
 | Media Hero | Full-bleed home hero (`min-h-svh`) |
 | Page Hero | Expertise title + subtitle; media `9/16` → `aspect-video` |
 | Section Band | White / cream / navy content bands |
-| Partner Grid | Square logo grid + orange “Discover more” tile |
-| Insight Card | Editorial insight / featured tile |
+| Partner Grid | Homepage attribution (white + orange CTA) or Partners directory (cream + Load more) |
+| Stats Strip | Bordered metric row (Partners and similar) |
+| Content Card | Insight / case-study feed tiles |
+| Author Carousel | Insight “Meet the author” band (Share + oval initials avatar + bio + CTA) |
+| Client Challenge | Expertise “challenge / how we help” cards + decoration flecks |
+| Case Study | Spotlight with metrics + media |
+| Insight Card | Compact featured / mega-menu insight tile |
 
 ### Components
 
@@ -84,6 +89,7 @@ src/
   assets/fonts/          # WPP typeface (woff2)
   assets/logos/          # Parent + sub-brand marks
   assets/partners/       # Partner attribution logos (local SVG)
+  assets/decorations/    # Challenge card halftone flecks
   assets/icons/          # Service icons
   components/ui/         # Primitives + co-located *.stories.tsx
   components/patterns/   # Page compositions (header, footer, heroes, …)

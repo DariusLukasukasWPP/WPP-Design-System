@@ -8,6 +8,7 @@ import googleLogo from "@/assets/partners/google.svg"
 import microsoftLogo from "@/assets/partners/microsoft.svg"
 import salesforceLogo from "@/assets/partners/salesforce.svg"
 import shopifyLogo from "@/assets/partners/shopify.svg"
+import acquiaLogo from "@/assets/partners/acquia.svg"
 
 export type Partner = {
   name: string
@@ -15,6 +16,7 @@ export type Partner = {
   logoSrc: string
 }
 
+/** Homepage attribution strip (7 logos + orange CTA). */
 const DEFAULT_PARTNERS: Partner[] = [
   { name: "Adobe", href: "#", logoSrc: adobeLogo },
   { name: "AWS", href: "#", logoSrc: awsLogo },
@@ -23,6 +25,18 @@ const DEFAULT_PARTNERS: Partner[] = [
   { name: "Microsoft", href: "#", logoSrc: microsoftLogo },
   { name: "Salesforce", href: "#", logoSrc: salesforceLogo },
   { name: "Shopify", href: "#", logoSrc: shopifyLogo },
+]
+
+/** Partners directory page order (includes Acquia; no CTA cell). */
+const DIRECTORY_PARTNERS: Partner[] = [
+  { name: "Adobe", href: "#", logoSrc: adobeLogo },
+  { name: "AWS", href: "#", logoSrc: awsLogo },
+  { name: "Salesforce", href: "#", logoSrc: salesforceLogo },
+  { name: "Google", href: "#", logoSrc: googleLogo },
+  { name: "Microsoft", href: "#", logoSrc: microsoftLogo },
+  { name: "Braze", href: "#", logoSrc: brazeLogo },
+  { name: "Shopify", href: "#", logoSrc: shopifyLogo },
+  { name: "Acquia", href: "#", logoSrc: acquiaLogo },
 ]
 
 /** Dotted corner arrow used on the orange “Discover more” partner cell. */
@@ -143,54 +157,83 @@ function PartnerCtaArrow({
 }
 
 /**
- * Partner attribution grid from the homepage.
+ * Partner logo grids from the live site — two surfaces:
  *
- * Desktop: 4-column square grid on cream; last cell is the orange CTA.
- * Mobile: 2-column horizontal snap scroller + a separate orange pill CTA
- * below the grid (the in-grid CTA stays for tablet/desktop).
- *
- * Logos are content — pass CDN or local URLs; do not tint them with palette
- * colours (same rule as brand wordmarks).
+ * - `attribution` (homepage): cream band, white cells, orange CTA tile,
+ *   horizontal snap scroller on small screens.
+ * - `directory` (/partners): white band, cream cells, no CTA tile, 2-col
+ *   grid + outline “Load more” control.
  */
 function PartnerGrid({
-  partners = DEFAULT_PARTNERS,
+  variant = "attribution",
+  partners,
   ctaLabel = "Discover more of our partners",
   ctaHref = "#",
+  loadMoreLabel = "Load more",
+  onLoadMore,
   className,
   ...props
 }: React.ComponentProps<"section"> & {
+  variant?: "attribution" | "directory"
   partners?: readonly Partner[]
   ctaLabel?: string
   ctaHref?: string
+  loadMoreLabel?: string
+  onLoadMore?: () => void
 }) {
+  const isDirectory = variant === "directory"
+  const items = partners ?? (isDirectory ? DIRECTORY_PARTNERS : DEFAULT_PARTNERS)
+
   return (
     <section
       data-slot="partner-grid"
+      data-variant={variant}
       aria-label="Partners"
-      className={cn("bg-wpp-cream py-12 lg:py-16", className)}
+      className={cn(
+        isDirectory ? "bg-background py-10" : "bg-wpp-cream py-12 lg:py-16",
+        className
+      )}
       {...props}
     >
-      <div className="mx-auto w-full max-w-layout">
+      <div
+        className={cn(
+          "mx-auto w-full",
+          isDirectory ? "max-w-screen-xl" : "max-w-layout"
+        )}
+      >
         <ul
           role="list"
-          style={{ ["--mobile-rows" as string]: 2 }}
+          style={
+            isDirectory ? undefined : { ["--mobile-rows" as string]: 2 }
+          }
           className={cn(
             "m-0 grid list-none gap-3 p-0",
             "md:grid-cols-3 lg:grid-cols-4 lg:px-6",
-            // min-w-0 stops grid items (esp. the CTA) blowing out the track.
             "[&>li]:aspect-square [&>li]:min-h-0 [&>li]:min-w-0 [&>li]:overflow-hidden",
-            // Mobile: two rows, horizontal snap scroll of square cells
-            "max-md:grid-flow-col max-md:auto-cols-[calc((100vw-3rem-0.75rem)/2)]",
-            "max-md:grid-rows-[repeat(var(--mobile-rows),1fr)]",
-            "max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-6",
-            "max-md:scrollbar-none max-md:[&::-webkit-scrollbar]:hidden"
+            isDirectory
+              ? "grid-cols-2 px-6"
+              : [
+                  "max-md:grid-flow-col max-md:auto-cols-[calc((100vw-3rem-0.75rem)/2)]",
+                  "max-md:grid-rows-[repeat(var(--mobile-rows),1fr)]",
+                  "max-md:snap-x max-md:snap-mandatory max-md:overflow-x-auto max-md:px-6",
+                  "max-md:scrollbar-none max-md:[&::-webkit-scrollbar]:hidden",
+                ]
           )}
         >
-          {partners.map((partner, index) => (
+          {items.map((partner, index) => (
             <li
               key={partner.name}
-              style={{ ["--mobile-order" as string]: index }}
-              className="grid place-items-center bg-background p-5 max-md:order-(--mobile-order) max-md:snap-start md:p-6"
+              style={
+                isDirectory
+                  ? undefined
+                  : { ["--mobile-order" as string]: index }
+              }
+              className={cn(
+                "grid place-items-center p-5 md:p-6",
+                isDirectory
+                  ? "bg-wpp-cream"
+                  : "bg-background max-md:order-(--mobile-order) max-md:snap-start"
+              )}
             >
               <a
                 href={partner.href}
@@ -207,39 +250,59 @@ function PartnerGrid({
             </li>
           ))}
 
-          <li
-            data-slot="partner-cta"
-            style={{ ["--mobile-order" as string]: partners.length }}
-            className="relative bg-cta max-md:order-(--mobile-order) max-md:snap-start"
-          >
-            {/* Absolutely fill the square so type metrics can't grow the grid
-                track; keep a real bottom inset so descenders aren't clipped. */}
-            <a
-              href={ctaHref}
-              className="absolute inset-0 flex flex-col justify-between p-4 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          {!isDirectory ? (
+            <li
+              data-slot="partner-cta"
+              style={{ ["--mobile-order" as string]: items.length }}
+              className="relative bg-cta max-md:order-(--mobile-order) max-md:snap-start"
             >
-              <PartnerCtaArrow className="shrink-0 self-end" />
-              <span className="hover-dotted self-start pb-0.5 text-xl leading-[1.15] font-light tracking-tight text-primary md:text-2xl lg:text-3xl lg:tracking-tighter">
-                {ctaLabel}
-              </span>
-            </a>
-          </li>
+              <a
+                href={ctaHref}
+                className="absolute inset-0 flex flex-col justify-between p-4 outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                <PartnerCtaArrow className="shrink-0 self-end" />
+                <span className="hover-dotted self-start pb-0.5 text-xl leading-[1.15] font-light tracking-tight text-primary md:text-2xl lg:text-3xl lg:tracking-tighter">
+                  {ctaLabel}
+                </span>
+              </a>
+            </li>
+          ) : null}
         </ul>
 
-        <div className="mt-8 flex justify-center px-6 md:hidden md:px-0">
-          <a
-            href={ctaHref}
-            className={cn(
-              buttonVariants({ variant: "default" }),
-              "w-full max-w-[calc(100%-3rem)]"
-            )}
-          >
-            {ctaLabel}
-          </a>
-        </div>
+        {isDirectory ? (
+          <div className="mt-8 flex justify-center px-6 md:px-0">
+            <button
+              type="button"
+              onClick={onLoadMore}
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "w-full px-6 md:w-auto"
+              )}
+            >
+              {loadMoreLabel}
+            </button>
+          </div>
+        ) : (
+          <div className="mt-8 flex justify-center px-6 md:hidden md:px-0">
+            <a
+              href={ctaHref}
+              className={cn(
+                buttonVariants({ variant: "default" }),
+                "w-full max-w-[calc(100%-3rem)]"
+              )}
+            >
+              {ctaLabel}
+            </a>
+          </div>
+        )}
       </div>
     </section>
   )
 }
 
-export { PartnerGrid, DEFAULT_PARTNERS, PartnerCtaArrow }
+export {
+  PartnerGrid,
+  DEFAULT_PARTNERS,
+  DIRECTORY_PARTNERS,
+  PartnerCtaArrow,
+}

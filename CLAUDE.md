@@ -71,6 +71,13 @@ Homepage partner logos live in `src/assets/partners/` and are consumed by
 wordmarks: fixed artwork, never tint with a palette colour. Prefer local SVG
 assets over hotlinking the live CDN (Storybook / localhost often get blocked).
 
+### Challenge decorations
+
+Orange halftone flecks on expertise Client Challenge cards live in
+`src/assets/decorations/` (`decoration-pattern-1/2` + mobile crops). Render via
+`ChallengeDecoration` — alternate pattern 1 and 2 down the stack; do not
+recolour the SVG (fills are brand orange `#ff6400`).
+
 ### Underlines — dotted on hover is INTENTIONAL
 
 Read the live header link classes before changing anything here:
@@ -141,8 +148,8 @@ category:
 
 | Category | For |
 |---|---|
-| `Foundations/` | Colour, typography, spacing, radius, links, mobile, logos, icons |
-| `Patterns/` | Page compositions (header, footer, heroes, partner grid, insight card, …) |
+| `Foundations/` | Colour, typography, spacing, radius, links, mobile, decorations, logos, icons |
+| `Patterns/` | Page compositions (header, footer, heroes, partner grid, stats strip, content card, client challenge, case study, insight card, …) |
 | `Forms/` | Inputs and controls |
 | `Overlays/` | Dialogs, popovers, menus, tooltips |
 | `Feedback/` | Alerts, badges, progress, skeletons |

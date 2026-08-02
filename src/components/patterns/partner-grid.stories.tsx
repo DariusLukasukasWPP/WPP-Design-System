@@ -12,11 +12,26 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  name: 'Attribution (homepage)',
+  args: { variant: 'attribution' },
   parameters: {
     docs: {
       description: {
         story:
-          'Homepage partner attribution from enterprisesolutions.wpp.com. Resize below md for the horizontal snap scroller + pill CTA.',
+          'Homepage: cream band, white cells, orange CTA. Resize below md for the snap scroller + pill CTA.',
+      },
+    },
+  },
+};
+
+export const Directory: Story = {
+  name: 'Directory (/partners)',
+  args: { variant: 'directory' },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Partners page: white band, cream cells, outline Load more — no orange CTA tile.',
       },
     },
   },
