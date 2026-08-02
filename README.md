@@ -34,13 +34,29 @@ npx vitest --project storybook run  # stories as tests
 
 ## What’s in the catalogue
 
-**Foundations** — colour, typography, spacing, radius, links, mobile rules, logos, iconography
+### Foundations
 
-**Patterns** — page compositions (header with mobile nav, footer, media/page heroes, section bands, partner grid, insight card)
+Colour, typography, spacing, radius, links, mobile rules, logos, iconography.
 
-**Components** — forms, overlays, feedback, and layout primitives (button, input, select, dialog, sheet, tabs, table, accordion, and more), each with a Storybook story.
+### Patterns
 
-Use the Storybook **Theme** toolbar to switch light / dark before signing off a component.
+Page compositions measured from the live site:
+
+| Pattern | Notes |
+|---|---|
+| Site Header | Desktop nav + CTA; below `lg`, dot-grid → full-bleed navy sheet |
+| Site Footer | Navy CTA band, cream contact strip, sitemap |
+| Media Hero | Full-bleed home hero (`min-h-svh`) |
+| Page Hero | Expertise title + subtitle; media `9/16` → `aspect-video` |
+| Section Band | White / cream / navy content bands |
+| Partner Grid | Square logo grid + orange “Discover more” tile |
+| Insight Card | Editorial insight / featured tile |
+
+### Components
+
+Forms, overlays, feedback, and layout primitives (button, input, select, dialog, sheet, tabs, table, accordion, and more), each with a Storybook story.
+
+Use the Storybook **Theme** toolbar to switch light / dark before signing off a component. Resize below **1024px** to exercise mobile header behaviour.
 
 ## Token architecture
 
@@ -59,6 +75,7 @@ Changing a Layer 2 token restyles every component at once.
 - **Cream `#fafaf0`** for warm neutrals / sidebar in light mode
 - **Destructive** is brand red `#bc0113`
 - **Radius**: pills `9999px`, cards `4px` (`--radius: 0.25rem`)
+- **Layout**: `max-w-layout` = 1440px; page gutter `px-6`; header height 85px
 
 ## Project layout
 
@@ -66,11 +83,12 @@ Changing a Layer 2 token restyles every component at once.
 src/
   assets/fonts/          # WPP typeface (woff2)
   assets/logos/          # Parent + sub-brand marks
+  assets/partners/       # Partner attribution logos (local SVG)
   assets/icons/          # Service icons
   components/ui/         # Primitives + co-located *.stories.tsx
-  components/patterns/   # Page compositions (header, footer, cards)
+  components/patterns/   # Page compositions (header, footer, heroes, …)
   foundations/           # Token / brand documentation stories
-  index.css              # Token layers + base styles
+  index.css              # Token layers + base styles + layout utilities
 .storybook/              # Storybook config + theme toolbar
 ```
 
@@ -83,6 +101,8 @@ npx shadcn@latest add <name>
 ```
 
 The CLI writes source only — add a matching `*.stories.tsx` beside it and place the story under the right sidebar category (`Foundations/`, `Patterns/`, `Forms/`, `Overlays/`, `Feedback/`, `Layout/`).
+
+Page compositions go in `src/components/patterns/`, not `ui/`.
 
 Use semantic Tailwind classes (`bg-primary`, `border-input`), never raw hex values.
 

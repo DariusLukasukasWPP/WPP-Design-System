@@ -64,6 +64,13 @@ marketdata-match, the-cocktail, verticurl).
 - Favicon lives at `public/favicon.svg` (referenced by `index.html`, and by
   Storybook via `staticDirs` + `.storybook/manager-head.html`).
 
+### Partner marks
+
+Homepage partner logos live in `src/assets/partners/` and are consumed by
+`PartnerGrid` (`src/components/patterns/partner-grid.tsx`). Same rule as brand
+wordmarks: fixed artwork, never tint with a palette colour. Prefer local SVG
+assets over hotlinking the live CDN (Storybook / localhost often get blocked).
+
 ### Underlines — dotted on hover is INTENTIONAL
 
 Read the live header link classes before changing anything here:
@@ -114,9 +121,11 @@ Two separate systems — do not conflate:
 
 ## Writing components
 
-- Components live in `src/components/ui/`, added via
+- Primitives live in `src/components/ui/`, added via
   `npx shadcn@latest add <name>`. The CLI writes source only — **it does not
   create stories**. Every new component needs a `*.stories.tsx` beside it.
+- Page compositions (header, footer, heroes, partner grid, …) live in
+  `src/components/patterns/` — do not put them under `ui/`.
 - Use semantic Tailwind classes (`bg-primary`, `border-input`). Never
   `bg-[#000050]`.
 - Use the `@/` alias for imports, not relative paths across directories.
@@ -133,7 +142,7 @@ category:
 | Category | For |
 |---|---|
 | `Foundations/` | Colour, typography, spacing, radius, links, mobile, logos, icons |
-| `Patterns/` | Page compositions (header, footer, heroes, insight card, …) |
+| `Patterns/` | Page compositions (header, footer, heroes, partner grid, insight card, …) |
 | `Forms/` | Inputs and controls |
 | `Overlays/` | Dialogs, popovers, menus, tooltips |
 | `Feedback/` | Alerts, badges, progress, skeletons |
