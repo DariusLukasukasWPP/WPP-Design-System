@@ -27,6 +27,14 @@ export const Invalid: Story = {
   args: { 'aria-invalid': true, defaultValue: 'not-an-email' },
 };
 
+export const Password: Story = {
+  args: {
+    type: 'password',
+    placeholder: 'Password',
+    defaultValue: 'supers3cret',
+  },
+};
+
 export const FileInput: Story = {
   args: { type: 'file', placeholder: undefined },
 };
